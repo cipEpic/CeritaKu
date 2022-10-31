@@ -1,13 +1,13 @@
 # NovelKu
 Website membaca dan membuat novel dengan fitur,
-Halaman utama
+1. Halaman utama
 - registrasi
 - login
-Halaman admin
+2. Halaman admin
 - profil
 - search
 - data user
-Halaman user
+3. Halaman user
 - profil
 - search
 - baca novel
