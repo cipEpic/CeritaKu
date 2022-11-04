@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php include "headtags.html"; ?>
+    <title>Halaman Login</title>
+</head>
+<body>
+
+    <!-- header -->
+    <?php include 'header.php'; ?>
+    <!-- end header -->
+
+    <!-- body -->
+    <div class="container center">  
+        <h3 class="header light center">Halaman Login</h3>
+        <form action="" method="post">
+            <div class="input-field inline">
+                <ul>
+                <li>
+                        <label><input name="akun" value="admin" type="radio"/><span>Admin</span> </label>
+                        <label><input name="akun" value="agen" type="radio"/><span>Agen</span> </label>
+                        <label><input name="akun" value="pelanggan" type="radio"/><span>Pelanggan</span></label>
+                    </li>
+                    <li>
+                        <input type="text" id="email" name="email" placeholder="Email">
+                    </li>
+                    <li>
+                        <input type="password" id="password" name="password" placeholder="Password">
+                        <p class="tes"></p>
+                    </li>
+                    <br>
+                    <li>
+                        <div class="center">
+                            <button class="waves-effect green darken-2 btn" type="submit" name="login">Login</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+    <!-- end body -->
+
+    <!-- footer -->
+    <?php include "footer.php"; ?>
+    <!-- end footer -->
+
+</body>
+</html>
