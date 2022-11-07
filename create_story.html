@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <link rel="icon" href="images/favicon.png" type="image/gif" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Bostorek</title>
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+    <!-- font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+</head>
+
+<body>
+    <!-- header section strats -->
+    <header class="header_section">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container ">
+                <a class="navbar-brand" href="index.html">
+                    <span>
+                        Bostorek
+                    </span>
+                </a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class=""> </span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link pl-lg-0" href="index.html">Home <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html"> Tulis Novel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="categories.html">Categories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html"> Blog </a>
+                        </li>
+                    </ul>
+                    <from class="search_form">
+                        <input type="text" class="form-control" placeholder="Search here...">
+                        <button class="" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </from>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- end header section -->
+
+    <!-- Foto Sampul -->
+    <div class="foto-sampul">
+        <div class="container">
+            <div class="wrapper">
+                <div class="image">
+                    <img src="" alt="">
+                </div>
+                <div class="content">
+                    <div class="icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                    </div>
+                    <div class="text">
+                        No file chosen, yet!
+                    </div>
+                </div>
+                <div id="cancel-btn">
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="file-name">
+                    File name here
+                </div>
+            </div>
+            <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
+            <input id="default-btn" type="file" hidden>
+        </div>
+        <script>
+            const wrapper = document.querySelector(".wrapper");
+            const fileName = document.querySelector(".file-name");
+            const defaultBtn = document.querySelector("#default-btn");
+            const customBtn = document.querySelector("#custom-btn");
+            const cancelBtn = document.querySelector("#cancel-btn i");
+            const img = document.querySelector("img");
+            let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
+            function defaultBtnActive() {
+                defaultBtn.click();
+            }
+            defaultBtn.addEventListener("change", function () {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function () {
+                        const result = reader.result;
+                        img.src = result;
+                        wrapper.classList.add("active");
+                    }
+                    cancelBtn.addEventListener("click", function () {
+                        img.src = "";
+                        wrapper.classList.remove("active");
+                    })
+                    reader.readAsDataURL(file);
+                }
+                if (this.value) {
+                    let valueStore = this.value.match(regExp);
+                    fileName.textContent = valueStore;
+                }
+            });
+        </script>
+    </div>
+
+    <!-- Menulis Novel -->
+    <section class="page-section" id="main-content">
+        <div class="container mx-auto" style="margin: 10px;" id="add-story">
+            <div id="saved-chapter-parts">
+                <div class="row mx-auto" style="margin: 10px;" id="saved-chapter-write">
+                    <div class="col-12">
+                        <div class="card">
+                            <h5 class="card-header" style="background-color: #063547; color: white;">Create Story</h5>
+                            <div class="card-body">
+                                <form action="" style="padding: 5px;">
+                                    <div class="form-group" style="padding: 10px;">
+                                        <input id="saved-chapter-title" type="text" class="form-control" name="saved-novel-title" placeholder="Judul Novel" required="required">
+                                    </div>
+                                    <div class="form-group" style="padding: 10px;">
+                                        <input id="saved-chapter-title" type="text" class="form-control" name="saved-novel-sinopsis" placeholder="Sinopsis Novel" required="required">
+                                    </div>
+                                    <div class="form-group" style="padding: 10px;">
+                                        <input id="saved-chapter-title" type="text" class="form-control" name="saved-novel-kategori" placeholder="Kategori Novel" required="required">
+                                    </div>
+                                    <div class="form-group" style="padding: 10px;">
+                                        <textarea id="saved-chapter-text" name="saved-chapter-text" rows="10" cols="115" placeholder="Write your story here" style="resize: none;"></textarea> 
+                                    </div>
+                                    <div class="form-group" style="padding: 10px;">
+                                        <input id="saved-chapter-title" type="text" class="form-control" name="saved-chapter-tag" placeholder="Tags Novel" required="required">
+                                    </div>
+                                    <div class="form-group" style="padding: 10px;">
+                                        <button type="button" class="btn btn-warning">Save Novel</button>
+                                    </div>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="cur-chapno" style="display: none;">0</div>
+
+
+
+</body>
+
+</html>
