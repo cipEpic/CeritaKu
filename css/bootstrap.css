@@ -10078,7 +10078,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 .foto-sampul .wrapper .icon{
   font-size: 100px;
-  color: #9658fe;
+  color: #44b89d;
 }
 .foto-sampul .wrapper .text{
   font-size: 20px;
@@ -10090,7 +10090,7 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 20px;
   right: 15px;
   top: 15px;
-  color: #9658fe;
+  color: #fefefe;
   cursor: pointer;
   display: none;
 }
@@ -10098,7 +10098,7 @@ a.text-dark:hover, a.text-dark:focus {
   display: block;
 }
 .foto-sampul .wrapper #cancel-btn i:hover{
-  color: #e74c3c;
+  color: #44b89d;
 }
 .foto-sampul .wrapper .file-name{
   position: absolute;
@@ -10108,7 +10108,7 @@ a.text-dark:hover, a.text-dark:focus {
   font-size: 18px;
   color: #fff;
   display: none;
-  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
+  background: #44b89d;
 }
 .foto-sampul .wrapper.active:hover .file-name{
   display: block;
@@ -10127,6 +10127,6 @@ a.text-dark:hover, a.text-dark:focus {
   letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
-  background: linear-gradient(135deg,#3a8ffe 0%,#9658fe 100%);
+  background: #44b89d;
 }
 /*# sourceMappingURL=bootstrap.css.map */
