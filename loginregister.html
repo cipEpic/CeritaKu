@@ -10,7 +10,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
   
-    <title>Bostorek</title>
+    <title>CeritaKu</title>
   
     <!-- bootstrap core css -->
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
@@ -25,7 +25,7 @@
   </head>
 
 <body>
-  <h2>Bostorek</h2>
+  <h2>CeritaKu</h2>
 
     <br>
 
@@ -33,13 +33,12 @@
       <div class="form-container sign-up-container">
           <form action="index.html">
               <h1>Create Account</h1>
-              <div class="social-container">
-                  <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                  <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-
+              <div class="input-field inline">
+                <label><input name="akun" value="admin" type="radio"/><span>Admin</span> </label>
+                <label><input name="akun" value="user" type="radio"/><span>Pelanggan</span></label>
               </div>
-              <span>or use your email for registration</span>
+                
+            
               <input type="text" placeholder="Name" />
               <input type="email" placeholder="Email" />
               <input type="password" placeholder="Password" />
@@ -49,12 +48,11 @@
       <div class="form-container sign-in-container">
           <form action="index.html">
               <h1>Sign in</h1>
-              <div class="social-container">
-                  <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-                  <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+              <div class="input-field inline">
+                <label><input name="akun" value="admin" type="radio"/><span>Admin</span> </label>
+                <label><input name="akun" value="user" type="radio"/><span>Pelanggan</span></label>
               </div>
-              <span>or use your account</span>
+
               <input type="email" placeholder="Email" />
               <input type="password" placeholder="Password" />
               <a href="#">Forgot your password?</a>
