@@ -8,7 +8,7 @@
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
-  <link rel="icon" href="images/favicon.png" type="image/gif" />
+  <link rel="icon" href="/static/styles/images/favicon.png" type="image/gif" />
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
@@ -16,14 +16,14 @@
   <title>CeritaKu</title>
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap.css" />
   <!-- font awesome style -->
-  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <link href="/static/styles/css/font-awesome.min.css" rel="stylesheet" />
 
   <!-- Custom styles for this template -->
-  <link href="css/style.css" rel="stylesheet" />
+  <link href="/static/styles/css/style.css" rel="stylesheet" />
   <!-- responsive style -->
-  <link href="css/responsive.css" rel="stylesheet" />
+  <link href="/static/styles/css/responsive.css" rel="stylesheet" />
 
 </head>
 
@@ -34,7 +34,7 @@
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="/">
             <span>
               CeritaKu
             </span>
@@ -47,20 +47,26 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link pl-lg-0" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link pl-lg-0" href="/">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="create_story.html"> Tulis Novel</a>
+                <a class="nav-link" href="/create_story"> Tulis Novel</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="categories.html">Categories</a>
+                <a class="nav-link" href="/categories">Categories</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="blog.html"> Blog </a>
+                <a class="nav-link" href="/blog"> Blog </a>
               </li>
+              {% if login %}
               <li class="nav-item">
-                <a class="nav-link" href="login.html">Login</a>
+                <a class="nav-link" href="/logout">Logout</a>
               </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+              </li>
+              {% endif %}
             </ul>
             <from class="search_form">
               <input type="text" class="form-control" placeholder="Search here...">
@@ -99,7 +105,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img.png" alt="">
+                    <img src="/static/styles/images/slider-img.png" alt="">
                   </div>
                 </div>
               </div>
@@ -127,7 +133,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img.png" alt="">
+                    <img src="/static/styles/images/slider-img.png" alt="">
                   </div>
                 </div>
               </div>
@@ -155,7 +161,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img.png" alt="">
+                    <img src="/static/styles/images/slider-img.png" alt="">
                   </div>
                 </div>
               </div>
@@ -195,7 +201,7 @@
           <div class="col-sm-6 col-md-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/cat1.png" alt="">
+                <img src="/static/styles/images/cat1.png" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -212,7 +218,7 @@
           <div class="col-sm-6 col-md-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/cat2.png" alt="">
+                <img src="/static/styles/images/cat2.png" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -229,7 +235,7 @@
           <div class="col-sm-6 col-md-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/cat3.png" alt="">
+                <img src="/static/styles/images/cat3.png" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -246,7 +252,7 @@
           <div class="col-sm-6 col-md-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/cat4.png" alt="">
+                <img src="/static/styles/images/cat4.png" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -263,7 +269,7 @@
           <div class="col-sm-6 col-md-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/cat5.png" alt="">
+                <img src="/static/styles/images/cat5.png" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -280,7 +286,7 @@
           <div class="col-sm-6 col-md-4 ">
             <div class="box ">
               <div class="img-box">
-                <img src="images/cat6.png" alt="">
+                <img src="/static/styles/images/cat6.png" alt="">
               </div>
               <div class="detail-box">
                 <h5>
@@ -308,7 +314,7 @@
       <div class="row">
         <div class="col-md-6">
           <div class="img-box">
-            <img src="images/about-img.png" alt="">
+            <img src="/static/styles/images/about-img.png" alt="">
           </div>
         </div>
         <div class="col-md-6">
@@ -355,7 +361,7 @@
             </div>
             <div class="client_id">
               <div class="img-box">
-                <img src="images/c1.jpg" alt="">
+                <img src="/static/styles/images/c1.jpg" alt="">
               </div>
               <div class="client_name">
                 <h5>
@@ -380,7 +386,7 @@
             </div>
             <div class="client_id">
               <div class="img-box">
-                <img src="images/c2.jpg" alt="">
+                <img src="/static/styles/images/c2.jpg" alt="">
               </div>
               <div class="client_name">
                 <h5>
@@ -405,7 +411,7 @@
             </div>
             <div class="client_id">
               <div class="img-box">
-                <img src="images/c3.jpg" alt="">
+                <img src="/static/styles/images/c3.jpg" alt="">
               </div>
               <div class="client_name">
                 <h5>
@@ -437,7 +443,7 @@
         <div class="col-md-6">
           <div class="box">
             <div class="img-box">
-              <img src="images/b1.jpg" alt="">
+              <img src="/static/styles/images/b1.jpg" alt="">
               <h4 class="blog_date">
                 <span>
                   19 January 2021
@@ -460,7 +466,7 @@
         <div class="col-md-6">
           <div class="box">
             <div class="img-box">
-              <img src="images/b2.jpg" alt="">
+              <img src="/static/styles/images/b2.jpg" alt="">
               <h4 class="blog_date">
                 <span>
                   19 January 2021
@@ -519,7 +525,7 @@
         </div>
         <div class="col-md-6">
           <div class="img-box">
-            <img src="images/contact-img.png" alt="">
+            <img src="/static/styles/images/contact-img.jpg" alt="">
           </div>
         </div>
       </div>
@@ -622,11 +628,11 @@
   <!-- footer section -->
 
   <!-- jQery -->
-  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="/static/styles/js/jquery-3.4.1.min.js"></script>
   <!-- bootstrap js -->
-  <script src="js/bootstrap.js"></script>
+  <script src="/static/styles/js/bootstrap.js"></script>
   <!-- custom js -->
-  <script src="js/custom.js"></script>
+  <script src="/static/styles/js/custom.js"></script>
   <!-- Google Map -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
