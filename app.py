@@ -97,21 +97,6 @@ def create_story():
     else:
         return render_template("create_story.html", login=login)
 
-@app.route("/novel")
-def novel():
-    if request.method == "POST":
-        judul = request.form.get("judul")
-        sinopsis = request.form.get("sinopsis")
-        chapter = request.form.get("kategori")
-        review = request.form.get("review")
-
-        cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO novel(judul, sinopsis, chapter, review) values (%s, %s, %s, %s)" % (judul, sinopsis, chapter, review))
-        cur2 = cur.fetchall()
-        mysql.connection.commit()
-        cur.close()
-
-        return render_template("index.html")
 
 @app.route("/categories")
 def categories():
