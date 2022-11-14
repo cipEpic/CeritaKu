@@ -60,12 +60,58 @@ def logout():
     session.pop('email',None)
     return redirect(url_for('index'))
 
+
+@app.route("/baca_novel")
+def baca_novel():
+    login = False
+    if "email" in session:
+        login = True
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM chapter_idnovel;")
+    novel = cur.fetchall()
+    judul = [i[2] for i in novel]
+    isi = [i[3] for i in novel]
+    return render_template("/baca_novel.html", login=login, judul=judul, isi=isi)
+
 @app.route("/create_story")
 def create_story():
     login = False
     if "email" in session:
         login = True
-    return render_template("create_story.html", login=login)
+
+    if request.method == "POST":
+        gambar = request.form.get("gambar")
+        judul = request.form.get("judul")
+        sinopsis = request.form.get("sinopsis")
+        chapter = request.form.get("kategori")
+        review = request.form.get("review")
+
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO novel(judul, sinopsis, chapter, review) values (%s, %s, %s, %s)" % (judul, sinopsis, chapter, review))
+        cur2 = cur.fetchall()
+        mysql.connection.commit()
+        cur.close()
+
+        return redirect(url_for("index"))
+    
+    else:
+        return render_template("create_story.html", login=login)
+
+@app.route("/novel")
+def novel():
+    if request.method == "POST":
+        judul = request.form.get("judul")
+        sinopsis = request.form.get("sinopsis")
+        chapter = request.form.get("kategori")
+        review = request.form.get("review")
+
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO novel(judul, sinopsis, chapter, review) values (%s, %s, %s, %s)" % (judul, sinopsis, chapter, review))
+        cur2 = cur.fetchall()
+        mysql.connection.commit()
+        cur.close()
+
+        return render_template("index.html")
 
 @app.route("/categories")
 def categories():
@@ -95,17 +141,6 @@ def about():
         login = True
     return render_template("about.html", login=login)
 
-@app.route("/baca_novel")
-def baca_novel():
-    login = False
-    if "email" in session:
-        login = True
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM chapter_idnovel;")
-    novel = cur.fetchall()
-    judul = [i[2] for i in novel]
-    isi = [i[3] for i in novel]
-    return render_template("/baca_novel.html", login=login, judul=judul, isi=isi)
 
 @app.route("/textbook")
 def textbook():

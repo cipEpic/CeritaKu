@@ -120,7 +120,7 @@
                 </div>
             </div>
             <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
-            <input id="default-btn" type="file" hidden>
+            <input id="default-btn" name="gambar" type="file" hidden>
         </div>
         <script>
             const wrapper = document.querySelector(".wrapper");
@@ -165,24 +165,24 @@
                         <div class="card">
                             <h5 class="card-header" style="background-color: #063547; color: white;">Create Story</h5>
                             <div class="card-body">
-                                <form action="" style="padding: 5px;">
+                                <form action="/novel" method="post" style="padding: 5px;">
                                     <div class="form-group" style="padding: 10px;">
-                                        <input id="saved-chapter-title" type="text" class="form-control" name="saved-novel-title" placeholder="Judul Novel" required="required">
+                                        <input id="saved-chapter-title" type="text" class="form-control" name="judul" placeholder="Judul Novel" required="required">
                                     </div>
                                     <div class="form-group" style="padding: 10px;">
-                                        <input id="saved-chapter-title" type="text" class="form-control" name="saved-novel-sinopsis" placeholder="Sinopsis Novel" required="required">
+                                        <input id="saved-chapter-title" type="text" class="form-control" name="sinopsis" placeholder="Sinopsis Novel" required="required">
                                     </div>
                                     <div class="form-group" style="padding: 10px;">
-                                        <input id="saved-chapter-title" type="text" class="form-control" name="saved-novel-kategori" placeholder="Kategori Novel" required="required">
+                                        <input id="saved-chapter-title" type="text" class="form-control" name="kategori" placeholder="Kategori Novel" required="required">
                                     </div>
                                     <div class="form-group" style="padding: 10px;">
-                                        <textarea id="saved-chapter-text" name="saved-chapter-text" rows="10" cols="115" placeholder="Write your story here" style="resize: none;"></textarea> 
+                                        <textarea id="saved-chapter-text" name="review" rows="10" cols="115" placeholder="Write your story here" style="resize: none;"></textarea> 
                                     </div>
                                     <div class="form-group" style="padding: 10px;">
                                         <input id="saved-chapter-title" type="text" class="form-control" name="saved-chapter-tag" placeholder="Tags Novel" required="required">
                                     </div>
                                     <div class="form-group" style="padding: 10px;">
-                                        <button type="button" class="btn btn-warning">Save Novel</button>
+                                        <button type="submit" class="btn btn-warning">Save Novel</button>
                                     </div>
                                     
                                 </form>
