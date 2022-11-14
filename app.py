@@ -5,7 +5,7 @@ app = Flask(__name__)
 app.config["MYSQL_HOST"] = "localhost"
 app.config["MYSQL_USER"] = "root"
 app.config["MYSQL_PASSWORD"] = ""
-app.config["MYSQL_DB"] = "testing"
+app.config["MYSQL_DB"] = "ceritaku"
 app.secret_key='asdsdfsdfs13sdf_df%&'
 
 mysql = MySQL(app)
@@ -13,11 +13,11 @@ mysql = MySQL(app)
 def index():
     global curfet
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM login")
+    cur.execute("SELECT * FROM akun")
     curfet = cur.fetchall()
     user = [i[0] for i in curfet]
     login = False
-    if "username" in session:
+    if "email" in session:
         login = True
     return render_template("index.html", login=login, user=user)
 
@@ -25,31 +25,36 @@ def index():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        username = request.form.get("name")
-        password = request.form.get("password")
+        email = request.form.get("email1")
+        password = request.form.get("password1")
         user = [i[0] for i in curfet]
         pw = [i[1] for i in curfet]
-        if username in user and password in pw:
-            session["email"] = username
+        print(user)
+        print(pw)
+        print(email)
+        print(password)
+        if email in user and password in pw:
+            session["email"] = email
             session["password"] = password
             return redirect(url_for("index"))
         else:
-            return render_template("loginx.html")
+            return render_template("loginregister.html")
 
     else:
-        return render_template("loginx.html")
+        return render_template("loginregister.html")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
+        email = request.form.get("email")
         username = request.form.get("name")
         password = request.form.get("password")
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO login(username, password) values (%s, %s)", (username, password))
+        cur.execute("INSERT INTO akun(email, nama, password) values (%s, %s, %s)", (email, username, password))
         cur2 = cur.fetchall()
         mysql.connection.commit()
         cur.close()
-        return redirect(url_for("register"))
+        return redirect(url_for("login"))
     else:
         return render_template("loginregister.html")
 
