@@ -59,6 +59,15 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/blog"> Blog </a>
                         </li>
+                        {% if login %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/login">Login</a>
+                        </li>
+                        {% endif %}
                     </ul>
                     <from class="search_form">
                         <input type="text" class="form-control" placeholder="Search here...">

@@ -65,16 +65,31 @@ def logout():
 
 @app.route("/create_story")
 def create_story():
-    return render_template("create_story.html")
+    login = False
+    if "email" in session:
+        login = True
+    return render_template("create_story.html", login=login)
 
 @app.route("/categories")
 def categories():
-    return render_template("categories.html")
+    login = False
+    if "email" in session:
+        login = True
+    return render_template("categories.html", login=login)
 
 @app.route("/blog")
 def blog():
-    return render_template("blog.html")
+    login = False
+    if "email" in session:
+        login = True
+    return render_template("blog.html", login=login)
 
+@app.route("/contact")
+def contact():
+    login = False
+    if "email" in session:
+        login = True
+    return render_template("contact.html", login=login)
 @app.route("/textbook")
 def textbook():
     return render_template("/categoriesbook/textbook.html")
