@@ -109,5 +109,6 @@ def biography():
 @app.route("/adventure")
 def adventure():
     return render_template("/categoriesbook/adventure.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
