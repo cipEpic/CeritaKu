@@ -10,8 +10,8 @@
   <!-- Site Metas -->
   <link rel="icon" href="/static/styles/images/favicon.png" type="image/gif" />
   <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  <meta name="author" content="" />
+  <meta name="This is just novel" content="" />
+  <meta name="Kelompok 15" content="" />
 
   <title>CeritaKu</title>
 
@@ -50,9 +50,20 @@
                 <a class="nav-link pl-lg-0" href="/">Home <span class="sr-only">(current)</span></a>
               </li>
               {% if login %}
-              <li class="nav-item">
-                <a class="nav-link" href="/create_story"> Tulis Novel</a>
-              </li>
+              <div class="dropdown">
+                <button class="dropbtn">Novel</button>
+                <div class="dropdown-content">
+                  <a href="/baca_novel">Baca Novel</a>
+                  <a href="/create_story">Tulis Novel</a>
+                </div>
+              </div>
+              {% else %}
+              <div class="dropdown">
+                <button class="dropbtn">Novel</button>
+                <div class="dropdown-content">
+                  <a href="/baca_novel">Baca Novel</a>
+                </div>
+              </div>
               {% endif %}
               <li class="nav-item">
                 <a class="nav-link" href="/categories">Categories</a>
@@ -97,7 +108,7 @@
             Novels Categories
           </h2>
           <p>
-            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
+            There are many variations categories of novel that we provide
           </p>
         </div>
         <div class="row">

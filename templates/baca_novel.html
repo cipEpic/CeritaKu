@@ -16,7 +16,7 @@
   <title>CeritaKu</title>
 
   <!-- bootstrap core css -->
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="/static/styles/css/bootstrap.css" />
   <!-- font awesome style -->
   <link href="/static/styles/css/font-awesome.min.css" rel="stylesheet" />
 
@@ -84,12 +84,12 @@
               </li>
               {% endif %}
             </ul>
-            <form class="search_form">
+            <from class="search_form">
               <input type="text" class="form-control" placeholder="Search here...">
               <button class="" type="submit">
                 <i class="fa fa-search" aria-hidden="true"></i>
               </button>
-            </form>
+            </from>
           </div>
         </nav>
       </div>
@@ -97,47 +97,44 @@
     <!-- end header section -->
   </div>
 
-  <!-- contact section -->
 
-  <section class="contact_section layout_padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 ">
-          <div class="heading_container ">
-            <h2 class="">
-              Contact Us
-            </h2>
-          </div>
-          <form action="#">
-            <div>
-              <input type="text" placeholder="Name" />
-            </div>
-            <div>
-              <input type="email" placeholder="Email" />
-            </div>
-            <div>
-              <input type="text" placeholder="Pone Number" />
-            </div>
-            <div>
-              <input type="text" class="message-box" placeholder="Message" />
-            </div>
-            <div class="btn-box">
-              <button>
-                SEND
-              </button>
-            </div>
-          </form>
+  <!-- catagory section -->
+
+  <section class="catagory_section layout_padding">
+    <div class="catagory_container">
+      <div class="container ">
+        <div class="heading_container heading_center">
+          <h2>
+            Novels Categories
+          </h2>
+          <p>
+            There are many variations categories of novel that we provide
+          </p>
         </div>
-        <div class="col-md-6">
-          <div class="img-box">
-            <img src="/static/styles/images/contact-img.jpg" alt="">
+        <div class="row">
+            {% for i in range(judul|length) %}
+          <div class="col-sm-6 col-md-4 ">
+            <div class="box ">
+              <div class="img-box">
+                <img src="/static/styles/images/cat1.png" alt="">
+              </div>
+              <div class="detail-box">
+                <h5>
+                  <a href="categoriesbook\textbook.html" target="_blank">{{ judul[i] }}</a>
+                </h5>
+                <p>
+                    {{ isi[i] }}
+                </p>
+              </div>
+            </div>
           </div>
+                {% endfor %}
         </div>
       </div>
     </div>
   </section>
 
-  <!-- end contact section -->
+  <!-- end catagory section -->
 
   <!-- info section -->
 
@@ -242,6 +239,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
   </script>
   <!-- End Google Map -->
+
 </body>
 
 </html>

@@ -29,10 +29,7 @@ def login():
         password = request.form.get("password1")
         user = [i[0] for i in curfet]
         pw = [i[1] for i in curfet]
-        print(user)
-        print(pw)
-        print(email)
-        print(password)
+        
         if email in user and password in pw:
             session["email"] = email
             session["password"] = password
@@ -97,6 +94,19 @@ def about():
     if "email" in session:
         login = True
     return render_template("about.html", login=login)
+
+@app.route("/baca_novel")
+def baca_novel():
+    login = False
+    if "email" in session:
+        login = True
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM chapter_idnovel;")
+    novel = cur.fetchall()
+    judul = [i[2] for i in novel]
+    isi = [i[3] for i in novel]
+    return render_template("/baca_novel.html", login=login, judul=judul, isi=isi)
+
 @app.route("/textbook")
 def textbook():
     return render_template("/categoriesbook/textbook.html")
