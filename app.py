@@ -90,6 +90,13 @@ def contact():
     if "email" in session:
         login = True
     return render_template("contact.html", login=login)
+
+@app.route("/about")
+def about():
+    login = False
+    if "email" in session:
+        login = True
+    return render_template("about.html", login=login)
 @app.route("/textbook")
 def textbook():
     return render_template("/categoriesbook/textbook.html")

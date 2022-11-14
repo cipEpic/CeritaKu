@@ -50,15 +50,20 @@
                             <a class="nav-link pl-lg-0" href="/">Home <span
                                     class="sr-only">(current)</span></a>
                         </li>
+                        {% if login %}
                         <li class="nav-item">
                             <a class="nav-link" href="/create_story"> Tulis Novel</a>
-                        </li>
+                         </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link" href="/categories">Categories</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/blog"> Blog </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/about"> About </a>
+                          </li>
                         {% if login %}
                         <li class="nav-item">
                             <a class="nav-link" href="/logout">Logout</a>
@@ -69,12 +74,12 @@
                         </li>
                         {% endif %}
                     </ul>
-                    <from class="search_form">
+                    <form class="search_form">
                         <input type="text" class="form-control" placeholder="Search here...">
                         <button class="" type="submit">
                             <i class="fa fa-search" aria-hidden="true"></i>
                         </button>
-                    </from>
+                    </form>
                 </div>
             </nav>
         </div>
