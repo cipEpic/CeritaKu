@@ -60,7 +60,7 @@ def register():
 
 @app.route("/logout")
 def logout():
-    session.pop('username',None)
+    session.pop('email',None)
     return redirect(url_for('index'))
 
 @app.route("/create_story")
@@ -75,5 +75,24 @@ def categories():
 def blog():
     return render_template("blog.html")
 
+@app.route("/textbook")
+def textbook():
+    return render_template("/categoriesbook/textbook.html")
+
+@app.route("/science")
+def science():
+    return render_template("/categoriesbook/science.html")
+
+@app.route("/history")
+def history():
+    return render_template("/categoriesbook/history.html")
+
+@app.route("/biography")
+def biography():
+    return render_template("/categoriesbook/biography.html")
+
+@app.route("/adventure")
+def adventure():
+    return render_template("/categoriesbook/adventure.html")
 if __name__ == "__main__":
     app.run(debug=True)
