@@ -15,7 +15,7 @@ def index():
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM akun")
     curfet = cur.fetchall()
-    user = [i[0] for i in curfet]
+    user = [i[1] for i in curfet]
     login = False
     if "email" in session:
         login = True
@@ -27,10 +27,11 @@ def login():
     if request.method == "POST":
         email = request.form.get("email1")
         password = request.form.get("password1")
-        user = [i[0] for i in curfet]
-        pw = [i[1] for i in curfet]
-        
-        if email in user and password in pw:
+        user = [i[1] for i in curfet]
+        pw = [i[2] for i in curfet]
+        print(user)
+        print(pw)
+        if (email in user) and (password in pw):
             session["email"] = email
             session["password"] = password
             return redirect(url_for("index"))
@@ -68,15 +69,15 @@ def baca_novel():
     if "email" in session:
         login = True
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM chapter_idnovel;")
+    cur.execute("SELECT * FROM novel;")
     novel = cur.fetchall()
     judul = [i[2] for i in novel]
     isi = [i[3] for i in novel]
     return render_template("/baca_novel.html", login=login, judul=judul, isi=isi)
 
-@app.route("/create_story")
+@app.route("/create_story", methods=["GET", "POST"])
 def create_story():
-    login = False
+    login = True
     if "email" in session:
         login = True
 
@@ -88,16 +89,26 @@ def create_story():
         review = request.form.get("review")
 
         cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO novel(judul, sinopsis, chapter, review) values (%s, %s, %s, %s)" % (judul, sinopsis, chapter, review))
+        cur.execute("INSERT INTO novel(id_akun, judul, sinopsis) SELECT id_akun, '%s', '%s' FROM akun WHERE email = '%s'" % (judul, sinopsis, session["email"]))
         cur2 = cur.fetchall()
         mysql.connection.commit()
         cur.close()
 
         return redirect(url_for("index"))
     
-    else:
+    elif request.method == "GET":
         return render_template("create_story.html", login=login)
 
+@app.route("/isi_novel")
+def isi_novel():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM novel;")
+    cur2 = cur.fetchall()
+    judul = [i[2] for i in cur2]
+    chapter = [i[4] for i in cur2]
+    review = [i[5] for i in cur2]
+
+    return render_template("isi_novel.html", gambar='', judul=judul, chapter=chapter, review=review)
 
 @app.route("/categories")
 def categories():

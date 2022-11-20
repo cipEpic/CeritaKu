@@ -102,7 +102,7 @@
         <div class="container">
             <div class="wrapper">
                 <div class="image">
-                    <img src="" alt="">
+                    <img src="{{ gambar }}" alt="">
                 </div>
                 <div class="content">
                     <div class="icon">
@@ -119,8 +119,7 @@
                     File name here
                 </div>
             </div>
-            <button onclick="defaultBtnActive()" id="custom-btn">Choose a file</button>
-            <input id="default-btn" name="gambar" type="file" hidden>
+            
         </div>
         <script>
             const wrapper = document.querySelector(".wrapper");
@@ -163,29 +162,19 @@
                 <div class="row mx-auto" style="margin: 10px;" id="saved-chapter-write">
                     <div class="col-12">
                         <div class="card">
-                            <h5 class="card-header" style="background-color: #063547; color: white;">Create Story</h5>
+                            <h5 class="card-header" style="background-color: #063547; color: white;">{{ judul }}</h5>
                             <div class="card-body">
-                                <form action="/create_story" method="post" style="padding: 5px;">
-                                    <div class="form-group" style="padding: 10px;">
-                                        <input type="text" name="judul" id="saved-chapter-title" class="form-control" placeholder="Judul Novel" required="required">
-                                    </div>
-                                    <div class="form-group" style="padding: 10px;">
-                                        <input type="text" name="sinopsis"  id="saved-chapter-title" class="form-control" placeholder="Sinopsis Novel" required="required">
-                                    </div>
-                                    <div class="form-group" style="padding: 10px;">
-                                        <input type="text" name="kategori" id="saved-chapter-title"  class="form-control" placeholder="Kategori Novel" required="required">
-                                    </div>
-                                    <div class="form-group" style="padding: 10px;">
-                                        <textarea id="saved-chapter-text" name="review" rows="10" cols="115" placeholder="Write your story here" style="resize: none;"></textarea> 
-                                    </div>
-                                    <div class="form-group" style="padding: 10px;">
-                                        <input name="saved-chapter-tag" id="saved-chapter-title" class="form-control" placeholder="Tags Novel" required="required">
-                                    </div>
-                                    <div class="form-group" style="padding: 10px;">
-                                        <button type="submit" class="btn btn-warning">Save Novel</button>
-                                    </div>
-                                    
-                                </form>
+                                <div class="form-group" style="padding: 10px;">
+                                    <p id="saved-chapter-title" class="form-control">
+                                        Chapter {{ chapter }}
+                                    </p>
+                                </div>
+                                <div class="form-group" style="padding: 10px;">
+                                    <p id="saved-chapter-title" class="form-control">
+                                        The Story
+                                        {{ review }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>

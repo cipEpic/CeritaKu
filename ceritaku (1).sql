@@ -21,13 +21,12 @@ USE `ceritaku`;
 -- Dumping structure for table ceritaku.akun
 DROP TABLE IF EXISTS `akun`;
 CREATE TABLE IF NOT EXISTS `akun` (
-  `id_akun` int(11) NOT NULL,
+  `id_akun` int(11) auto_increment key,
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `jenis_kelamin` varchar(100) NOT NULL,
-  `tanggal_lahir` date NOT NULL,
-  PRIMARY KEY (`id_akun`)
+  `tanggal_lahir` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- Dumping data for table ceritaku.akun: ~0 rows (approximately)
@@ -38,13 +37,12 @@ CREATE TABLE IF NOT EXISTS `akun` (
 -- Dumping structure for table ceritaku.novel
 DROP TABLE IF EXISTS `novel`;
 CREATE TABLE IF NOT EXISTS `novel` (
-  `id_novel` int(11) NOT NULL,
+  `id_novel` int(11) auto_increment key,
   `id_akun` int(11) NOT NULL,
   `judul` varchar(50) NOT NULL DEFAULT '',
   `sinopsis` text NOT NULL,
   `chapter` int(11) NOT NULL DEFAULT 0,
   `review` float NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id_novel`),
   KEY `FK__akun` (`id_akun`),
   CONSTRAINT `FK__akun` FOREIGN KEY (`id_akun`) REFERENCES `akun` (`id_akun`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
