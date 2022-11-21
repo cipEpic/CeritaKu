@@ -48,7 +48,7 @@ INSERT INTO `akun` (`id_akun`, `email`, `password`, `nama`, `jenis_kelamin`, `ta
 --
 
 CREATE TABLE `novel` (
-  `id_novel` int(11) auto_increment,
+  `id_novel` int(11) auto_increment key,
   `id_akun` int(11) NOT NULL,
   `judul` varchar(50) NOT NULL DEFAULT '',
   `sinopsis` text NOT NULL,
@@ -68,8 +68,7 @@ INSERT INTO `novel` (`id_novel`, `id_akun`, `judul`, `sinopsis`, `chapter`, `rev
 (4, 1, 'sadsa', 'sadsad', 0, '0');
 
 --
--- Indexes for dumped tables
---
+
 -- --------------------------------------------------------
 
 --
@@ -77,7 +76,7 @@ INSERT INTO `novel` (`id_novel`, `id_akun`, `judul`, `sinopsis`, `chapter`, `rev
 --
 
 CREATE TABLE `chapter_idnovel` (
-  `id_chapter` int(11) auto_increment,
+  `id_chapter` int(11) auto_increment key,
   `id_novel` int(11) NOT NULL,
   `judul` varchar(50) NOT NULL,
   `isi` text NOT NULL,
